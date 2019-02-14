@@ -11,12 +11,14 @@
   import pageheader from "../todolist/header.vue"
   import pagemain from '../todolist/main.vue'
   import pagefooter from '../todolist/footer.vue'
+  import storageUtil from '../../utils/storageUtil'
   export default {
     name: 'todolist',
     data(){
       return {
         //从缓存里读取保存todos数据
-       todos:JSON.parse(window.localStorage.getItem('todos_key') || '[]')
+      //todos: JSON.parse(window.localStorage.getItem('todos_key') || '[]')
+      todos:storageUtil.readTodos()
       }
     },
     methods:{
@@ -38,10 +40,12 @@
     watch:{
       todos:{
         deep:true,//深度监视
-        handler:function(newValue){
-          //将todos保存到缓存 todos的JSON数据
-          window.localStorage.setItem('todos_key',JSON.stringify(newValue))
-        }
+        // handler:function(newValue){
+        //   //将todos保存到缓存 todos的JSON数据
+        //   //window.localStorage.setItem('todos_key',JSON.stringify(newValue))
+        //   storageUtil.saveTodos(newValue)
+        // }
+        handler:storageUtil.saveTodos
       }
     },
     components:{

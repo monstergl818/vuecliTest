@@ -15,6 +15,15 @@
       <li>
         <router-link to="/todolist">todolist</router-link>
       </li>
+      <li>
+        <router-link to="/todolist1">（父子组件通信）自定义事件</router-link>
+      </li>
+      <li>
+        <router-link to="/todos2">vue-axios</router-link>
+      </li>
+      <li>
+        <router-link to="/search">search</router-link>
+      </li>
     </ul>
     <div class="line"></div>
 
@@ -23,6 +32,7 @@
 </template>
 
 <script>
+
 export default {
   name: "App"
 };
